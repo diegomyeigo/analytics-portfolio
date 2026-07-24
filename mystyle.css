@@ -1,0 +1,12 @@
+body {
+    background-color: linen
+}
+
+* {
+    text-align: center
+}
+
+.centered_img {
+    display: block;
+    margin: 0 auto
+}

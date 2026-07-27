@@ -1,8 +1,10 @@
 body {
+    margin: 0;
+    padding: 0;
     background-image: url("backdrop.png");
-    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     background-attachment: fixed;
 }
 
@@ -11,12 +13,42 @@ body {
     font-family: 'Trebuchet MS', Tahoma, Arial, sans-serif;
 }
 
-.main_header {
+.main_banner {
+    background: linear-gradient(rgb(241, 230, 208), rgb(255, 1, 1));
+    /* border-color: black;
+    border-style: solid; */
+    padding: 20px 20px;
+}
+
+.main_banner h1 {
     color: black;
     font-size: 44px;
+    text-align: center;
 }
 
 .centered_img {
     display: block;
     margin: 0 auto;
+    border-style: solid;
+    border-color: whitesmoke;
+}
+
+.button {
+    display: inline-block;
+    color: black;
+    background-color: white;
+    border-style: solid;
+    padding: 8px 8px;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.button:hover {
+    color: white;
+    background-color: navy;
+}
+
+.button:active {
+    color: white;
+    background-color: lightgreen;
 }

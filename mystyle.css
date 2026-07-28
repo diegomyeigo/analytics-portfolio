@@ -14,13 +14,38 @@ body {
 }
 
 .main_banner {
-    background: linear-gradient(rgb(241, 230, 208), rgb(255, 1, 1));
-    /* border-color: black;
-    border-style: solid; */
+    border-style: none none groove none;
+    border-color: rgb(200, 182, 164);
+    background-color: linen;
     padding: 20px 20px;
 }
 
+.home_button {
+    display: block;
+    text-align: left;
+}
+
+.survey_banner {
+    margin-top: 15px;
+    display: inline-block;
+    color: black;
+    background-color: linen;
+    border-style: groove;
+    border-radius: 8px;
+    border-width: 4px;
+    border-color: black;
+    padding: 15px 15px;
+}
+
+.page_top {
+    margin: 0;
+    padding: 0;
+    border-style: none none dotted none;
+    border-color: rgb(200, 182, 164);
+}
+
 .main_banner h1 {
+    font-family: Times, 'Times New Roman', Georgia, serif;
     color: black;
     font-size: 44px;
     text-align: center;
@@ -33,22 +58,29 @@ body {
     border-color: whitesmoke;
 }
 
-.button {
+.link_button {
     display: inline-block;
     color: black;
     background-color: white;
     border-style: solid;
+    border-width: 2px;
+    border-radius: 8px;
     padding: 8px 8px;
     text-decoration: none;
-    border-radius: 8px;
 }
 
-.button:hover {
-    color: white;
-    background-color: navy;
+.link_button:hover {
+    background-color: lightblue;
 }
 
-.button:active {
-    color: white;
+.link_button:active {
     background-color: lightgreen;
+}
+
+input[type="radio"] {
+    margin-left: 25px;
+}
+
+input[type="text"] {
+    display: inline-block;
 }

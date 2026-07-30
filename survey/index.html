@@ -27,7 +27,7 @@
 
         <form id="finance_survey" action="" method="POST">
             <p>How old are you?</p>
-            <input type="radio" name="age" id="18-24" value="18-24">
+            <input type="radio" name="age" id="18-24" value="18-24" required>
             <label for="18-24">18-24</label>
             <input type="radio" name="age" id="25-34" value="25-34">
             <label for="25-34">25-34</label>
@@ -43,7 +43,7 @@
             <br>
 
             <p>How many other people do you live with?</p>
-            <input type="radio" name="household" id="alone" value="alone">
+            <input type="radio" name="household" id="alone" value="alone" required>
             <label for="alone">I live alone</label>
             <input type="radio" name="household" id="1" value="1">
             <label for="1">1</label>
@@ -59,37 +59,54 @@
             <br>
 
             <label for="income">What is your estimated annual income before taxes? $</label>
-            <input type="text" id="income" name="income">
+            <input type="number" min="0" max="1000000000" id="income" name="income" required>
 
             <br>
             <br>
             <br>
             
             <label for="rent">What is your monthly rent amount (or mortgage)? $</label>
-            <input type="text" id="rent" name="rent">
+            <input type="number" min="0" max="10000000" id="rent" name="rent" required>
 
             <br>
             <br>
             <br>
 
             <label for="savings">On average, how much would you say you put into savings each month? $</label>
-            <input type="text" id="savings" name="savings">
+            <input type="number" min="0" max="10000000" id="savings" name="savings" required>
 
             <br>
             <br>
             <br>
 
             <label for="emergency">If an unexpected emergency happened today, what is the largest expense you could pay in cash without borrowing money? $</label>
-            <input type="text" id="emergency" name="emergency">
+            <input type="number" min="0" max="1000000000" id="emergency" name="emergency" required>
 
             <br>
             <br>
             <br>
 
-            <button type="submit">Submit</button>
+            <input type="submit" id="submit" value="Submit">
+
+            <script>
+                (function () {
+                    const form = document.getElementById("finance_survey")
+                    const subButton = document.getElementById("submit")
+
+                    function checkFields() {
+                        subButton.disabled = !form.checkValidity()
+                    }
+                
+                    form.addEventListener("input", checkFields)
+                    form.addEventListener("change", checkFields)
+
+                    checkFields()
+
+                }())
+            </script>
 
 
-            </form>
+        </form>
     
     </body>
 </html>

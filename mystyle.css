@@ -84,3 +84,17 @@ input[type="radio"] {
 input[type="text"] {
     display: inline-block;
 }
+
+.pass {
+    display: none
+}
+
+.error {
+    display: block;
+    color: red;
+    background-color: white;
+    border: solid red;
+    padding: 4px 10px;
+    width: 18%;
+    margin: 4px auto;
+}

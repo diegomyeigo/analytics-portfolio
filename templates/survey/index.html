@@ -10,7 +10,7 @@
     <body>
         <div class="page_top">
 
-            <a class="home_button" href="../index.html">Go home</a>
+            <a class="home_button" href="{{ url_for('home') }}">Go home</a>
             <h1 class="survey_banner">Personal Finance Survey</h1>
             
             <p>Thanks for taking the time to complete this survey!</p>
@@ -25,7 +25,7 @@
         <br>
 
 
-        <form id="finance_survey" action="" method="POST">
+        <form id="finance_survey" action="{{ url_for('wip') }}" method="POST">
             <p>How old are you?</p>
             <input type="radio" name="age" id="18-24" value="18-24" required>
             <label for="18-24">18-24</label>

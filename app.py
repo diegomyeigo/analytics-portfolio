@@ -17,4 +17,4 @@ def wip():
     return render_template('survey/index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

@@ -35,7 +35,7 @@ function raiseRangeError(id, flag) {
 })};
 
 
-fetch("https://personal-website-backend-98gm.onrender.com")
+fetch("https://personal-website-backend-98gm.onrender.com/api/test")
     .then(response => response.json())
     .then(data => {
         console.log(data);

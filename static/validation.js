@@ -35,6 +35,16 @@ function raiseRangeError(id, flag) {
 })};
 
 
+fetch("https://personal-website-backend-98gm.onrender.com")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error("Error connecting to backend:", error);
+    });
+
+
 raiseRangeError("income", "incomeError");
 raiseRangeError("rent", "rentError");
 raiseRangeError("savings", "savingsError");

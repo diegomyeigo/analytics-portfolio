@@ -34,7 +34,6 @@ function raiseRangeError(id, flag) {
 
 })};
 
-
 fetch("https://personal-website-backend-98gm.onrender.com/api/test")
     .then(response => {
         if (!response.ok) {
@@ -49,7 +48,6 @@ fetch("https://personal-website-backend-98gm.onrender.com/api/test")
     .catch(error => {
         console.error("Error connecting to backend:", error);
     });
-
 
 raiseRangeError("income", "incomeError");
 raiseRangeError("rent", "rentError");

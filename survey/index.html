@@ -27,6 +27,11 @@
 
 
         <form id="finance_survey" method="POST">
+            <div style="display:none;">
+                <label for="granny">What's your granny's name?</label>
+                <input type="text" name="granny" id="granny">
+            </div>
+
             <p>How old are you?</p>
             <input type="radio" name="age" id="18-24" value="18-24" required>
             <label for="18-24">18-24</label>
@@ -93,8 +98,8 @@
 
             <button type="submit" id="submit">Submit</button>
 
-            <script src="../static/validation.js"></script>
-            <script src="../static/requests.js"></script>
+            <script src="../interactions/validation.js"></script>
+            <script src="../interactions/requests.js"></script>
 
 
         </form>

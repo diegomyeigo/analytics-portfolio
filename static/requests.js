@@ -1,30 +1,71 @@
-const form = document.getElementById("finance_survey");
+// fetch("https://personal-website-backend-98gm.onrender.com/api/test")
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error(`HTTP Error: ${response.status}`);
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log("Successful communication");
+//         console.log(data);
+//     })
+//     .catch(error => {
+//         console.log("Failed to connect", error)
+//     })
 
-form.addEventListener("submit", function(event) {
+const form = document.getElementById("finance_survey");
+const subButton = document.getElementById("submit")
+
+form.addEventListener("submit", async function(event) {
     event.preventDefault();
+
+    subButton.disabled = true;
+    subButton.textContent = "Submitting.. "
 
     const formData = new FormData(form);
     const dataObject = Object.fromEntries(formData);
 
-    fetch("https://personal-website-backend-98gm.onrender.com/api/survey", {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json"
-        },
-        body: JSON.stringify(dataObject)
-    })
-    .then(response => {
+
+    try {
+        const response = await fetch("https://personal-website-backend-98gm.onrender.com/api/survey", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(dataObject)
+        });
         if (!response.ok) {
-            throw new Error(`HTTP error: ${response.status}`)
-        }
-        return response.json()
-    })
-    .then(data => {
-        console.log(data)
-    })
-    .catch(error => {
-        console.error("Error in communication", error)
-    });
+            throw new Error(`HTTP Error ${response.status}`)
+        };
+        const formattedResponse = await response.json();
+        console.log(formattedResponse);
+    } catch (err) {
+        console.log("Error:", err);
+    } finally {
+        subButton.disabled = false;
+        subButton.textContent = "Submit";
+    }
 });
+
+//     fetch("https://personal-website-backend-98gm.onrender.com/api/survey", {
+//         method: "POST",
+//         headers: {
+//         "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(dataObject)
+//     })
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error(`HTTP error: ${response.status}`)
+//         }
+//         return response.json()
+//     })
+//     .then(data => {
+//         console.log(data)
+//     })
+//     .catch(error => {
+//         console.error("Error in communication", error)
+//     });
+// });
 
 // CORS blocking connection

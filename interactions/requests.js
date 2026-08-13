@@ -12,9 +12,7 @@
 //     .catch(error => {
 //         console.log("Failed to connect", error)
 //     })
-
-const form = document.getElementById("finance_survey");
-const subButton = document.getElementById("submit")
+console.log("Hello from javascript!");
 
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
@@ -23,8 +21,9 @@ form.addEventListener("submit", async function(event) {
     subButton.textContent = "Submitting.. "
 
     const formData = new FormData(form);
+    // console.log(formData)
     const dataObject = Object.fromEntries(formData);
-
+    // console.log(dataObject)
 
     try {
         const response = await fetch("https://personal-website-backend-98gm.onrender.com/api/survey", {

@@ -32,6 +32,12 @@
                 <input type="text" name="granny" id="granny">
             </div>
 
+            <label for="email">Your email:</label>
+            <input type="email" name="email" id="email" required>
+            <div id="emailError" class="pass"></div>
+
+            <br><br><br>
+
             <p>How old are you?</p>
             <input type="radio" name="age" id="18-24" value="18-24" required>
             <label for="18-24">18-24</label>
@@ -44,9 +50,7 @@
             <input type="radio" name="age" id="55+" value="55+">
             <label for="55+">55+</label>
 
-            <br>
-            <br>
-            <br>
+            <br><br><br>
 
             <p>How many other people do you live with?</p>
             <input type="radio" name="household" id="alone" value="alone" required>
@@ -60,41 +64,31 @@
             <input type="radio" name="household" id="4+" value="4+">
             <label for="4+">4+</label>
 
-            <br>
-            <br>
-            <br>
+            <br><br><br>
 
             <label for="income">What is your estimated annual income before taxes? $</label>
             <input type="number" min="0" max="1000000000" id="income" name="income" required>
             <div id="incomeError" class="pass"></div>
 
-            <br>
-            <br>
-            <br>
+            <br><br><br>
             
             <label for="rent">What is your monthly rent amount (or mortgage)? $</label>
             <input type="number" min="0" max="10000000" id="rent" name="rent" required>
             <div id="rentError" class="pass"></div>
 
-            <br>
-            <br>
-            <br>
+            <br><br><br>
 
             <label for="savings">On average, how much would you say you put into savings each month? $</label>
             <input type="number" min="0" max="10000000" id="savings" name="savings" required>
             <div id="savingsError" class="pass"></div>
 
-            <br>
-            <br>
-            <br>
+            <br><br><br>
 
             <label for="emergency">If an unexpected emergency happened today, what is the largest expense you could pay in cash without borrowing money? $</label>
             <input type="number" min="0" max="1000000000" id="emergency" name="emergency" required>
             <div id="emergencyError" class="pass"></div>
 
-            <br>
-            <br>
-            <br>
+            <br><br><br>
 
             <button type="submit" id="submit">Submit</button>
 

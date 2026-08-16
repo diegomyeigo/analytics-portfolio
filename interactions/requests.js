@@ -34,12 +34,33 @@ form.addEventListener("submit", async function(event) {
             body: JSON.stringify(dataObject)
         });
         if (!response.ok) {
-            throw new Error(`HTTP Error ${response.status}`)
+            switch (response.status) {
+                case 400:
+                    window.location.href = "../survey/error400";
+                    return;
+
+                case 403:
+                    window.location.ref = "../survey/error403";
+                    return;
+
+                case 422:
+                    window.location.href = "../survey/error422";
+                    return;
+
+                case 500:
+                    window.location.href "../survey/error500";
+                    return;
+            }
+
+            throw new Error(`Error status: ${response.status}`)
         };
+
         const formattedResponse = await response.json();
         console.log(formattedResponse);
+
     } catch (err) {
         console.log("Error:", err);
+    
     } finally {
         subButton.disabled = false;
         subButton.textContent = "Submit";

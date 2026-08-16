@@ -40,7 +40,7 @@ form.addEventListener("submit", async function(event) {
                     return;
 
                 case 403:
-                    window.location.ref = "../survey/error403";
+                    window.location.href = "../survey/error403";
                     return;
 
                 case 422:
@@ -48,7 +48,7 @@ form.addEventListener("submit", async function(event) {
                     return;
 
                 case 500:
-                    window.location.href "../survey/error500";
+                    window.location.href = "../survey/error500";
                     return;
             }
 
@@ -58,12 +58,13 @@ form.addEventListener("submit", async function(event) {
         const formattedResponse = await response.json();
         console.log(formattedResponse);
 
+        window.location.href = "../survey/completion.html"
+
     } catch (err) {
         console.log("Error:", err);
     
     } finally {
         subButton.disabled = false;
         subButton.textContent = "Submit";
-        window.location.href = "../survey/completion.html"
     }
 });

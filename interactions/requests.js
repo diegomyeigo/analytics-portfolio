@@ -17,31 +17,42 @@ form.addEventListener("submit", async function(event) {
             },
             body: JSON.stringify(dataObject)
         });
+
+        const formattedResponse = await response.json();
+
         if (!response.ok) {
             switch (response.status) {
                 case 400:
-                    window.location.href = "../survey/error400";
-                    return;
+                    if (response.message === "Invalid or missing JSON data") {
+                        window.location.href = "../survey/error400.html";
+                        return;
+                    } else if (response.message === "Invalid email") {
+                        window.location.href = "../survey/errorInvalidEmail.html"
+                        return;
+                    }
+                    break;
 
                 case 403:
-                    window.location.href = "../survey/error403";
+                    window.location.href = "../survey/error403.html";
+                    return;
+
+                case 409:
+                    window.location.href = "../survey/error409.html";
                     return;
 
                 case 422:
-                    window.location.href = "../survey/error422";
+                    window.location.href = "../survey/error422.html";
                     return;
 
                 case 500:
-                    window.location.href = "../survey/error500";
+                    window.location.href = "../survey/error500.html";
                     return;
             }
 
             throw new Error(`Error status: ${response.status}`)
         };
 
-        const formattedResponse = await response.json();
         console.log(formattedResponse);
-
         window.location.href = "../survey/completion.html"
 
     } catch (err) {

@@ -23,10 +23,10 @@ form.addEventListener("submit", async function(event) {
         if (!response.ok) {
             switch (response.status) {
                 case 400:
-                    if (response.message === "Invalid or missing JSON data") {
+                    if (formattedResponse.message === "Invalid or missing JSON data") {
                         window.location.href = "../survey/error400.html";
                         return;
-                    } else if (response.message === "Invalid email") {
+                    } else if (formattedResponse.message === "Invalid email") {
                         window.location.href = "../survey/errorInvalidEmail.html"
                         return;
                     }
@@ -47,12 +47,12 @@ form.addEventListener("submit", async function(event) {
                 case 500:
                     window.location.href = "../survey/error500.html";
                     return;
-            }
 
-            throw new Error(`Error status: ${response.status}`)
+                default:
+                    throw new Error(`HTTP ${response.status}`)
+            }    
         };
-
-        console.log(formattedResponse);
+        
         window.location.href = "../survey/completion.html"
 
     } catch (err) {

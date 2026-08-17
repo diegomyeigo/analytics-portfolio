@@ -1,19 +1,3 @@
-// fetch("https://personal-website-backend-98gm.onrender.com/api/test")
-//     .then(response => {
-//         if (!response.ok) {
-//             throw new Error(`HTTP Error: ${response.status}`);
-//         }
-//         return response.json();
-//     })
-//     .then(data => {
-//         console.log("Successful communication");
-//         console.log(data);
-//     })
-//     .catch(error => {
-//         console.log("Failed to connect", error)
-//     })
-console.log("Hello from javascript!");
-
 form.addEventListener("submit", async function(event) {
     event.preventDefault();
 

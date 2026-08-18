@@ -10,7 +10,7 @@ form.addEventListener("submit", async function(event) {
     // console.log(dataObject)
 
     try {
-        const response = await fetch("https://personal-website-backend-98gm.onrender.com/api/survey", {
+        const response = await fetch(`${API_URL}/api/survey`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -45,9 +45,15 @@ form.addEventListener("submit", async function(event) {
                     return;
 
                 case 500:
-                    window.location.href = "../survey/error500.html";
-                    return;
-
+                    if (formattedResponse.message.includes("Email error")) {
+                        window.location.href = "../survey/error500.html";
+                        return;
+                    } else if (formattedResponse.message === "Database error") {
+                        window.location.Response = "../survey/errorDatabaseError";
+                        return;
+                    }
+                    break;
+                    
                 default:
                     throw new Error(`HTTP ${response.status}`)
             }    

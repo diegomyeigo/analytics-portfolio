@@ -49,7 +49,7 @@ form.addEventListener("submit", async function(event) {
                         window.location.href = "../survey/error500.html";
                         return;
                     } else if (formattedResponse.message === "Database error") {
-                        window.location.Response = "../survey/errorDatabaseError";
+                        window.location.href = "../survey/errorDatabaseError.html";
                         return;
                     }
                     break;

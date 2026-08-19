@@ -24,32 +24,32 @@ form.addEventListener("submit", async function(event) {
             switch (response.status) {
                 case 400:
                     if (formattedResponse.message === "Invalid or missing JSON data") {
-                        window.location.href = "../survey/error400";
+                        window.location.href = "/survey/error400/";
                         return;
                     } else if (formattedResponse.message === "Invalid email") {
-                        window.location.href = "../survey/errorInvalidEmail"
+                        window.location.href = "/survey/errorInvalidEmail/";
                         return;
                     }
                     break;
 
                 case 403:
-                    window.location.href = "../survey/error403";
+                    window.location.href = "/survey/error403/";
                     return;
 
                 case 409:
-                    window.location.href = "../survey/error409";
+                    window.location.href = "/survey/error409/";
                     return;
 
                 case 422:
-                    window.location.href = "../survey/error422";
+                    window.location.href = "/survey/error422/";
                     return;
 
                 case 500:
                     if (formattedResponse.message.includes("Email error")) {
-                        window.location.href = "../survey/error500";
+                        window.location.href = "/survey/error500/";
                         return;
                     } else if (formattedResponse.message === "Database error") {
-                        window.location.href = "../survey/errorDatabase";
+                        window.location.href = "/survey/errorDatabase/";
                         return;
                     }
                     break;
@@ -59,10 +59,10 @@ form.addEventListener("submit", async function(event) {
             }    
         };
         
-        window.location.href = "../survey/completion"
+        window.location.href = "/survey/completion/"
 
     } catch (err) {
-        window.location.href = "../survey/fetchError";
+        window.location.href = "/survey/fetchError/";
     
     } finally {
         subButton.disabled = false;

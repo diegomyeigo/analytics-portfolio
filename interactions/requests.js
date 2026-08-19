@@ -24,45 +24,45 @@ form.addEventListener("submit", async function(event) {
             switch (response.status) {
                 case 400:
                     if (formattedResponse.message === "Invalid or missing JSON data") {
-                        window.location.href = "../survey/error400.html";
+                        window.location.href = "../survey/error400";
                         return;
                     } else if (formattedResponse.message === "Invalid email") {
-                        window.location.href = "../survey/errorInvalidEmail.html"
+                        window.location.href = "../survey/errorInvalidEmail"
                         return;
                     }
                     break;
 
                 case 403:
-                    window.location.href = "../survey/error403.html";
+                    window.location.href = "../survey/error403";
                     return;
 
                 case 409:
-                    window.location.href = "../survey/error409.html";
+                    window.location.href = "../survey/error409";
                     return;
 
                 case 422:
-                    window.location.href = "../survey/error422.html";
+                    window.location.href = "../survey/error422";
                     return;
 
                 case 500:
                     if (formattedResponse.message.includes("Email error")) {
-                        window.location.href = "../survey/error500.html";
+                        window.location.href = "../survey/error500";
                         return;
                     } else if (formattedResponse.message === "Database error") {
-                        window.location.href = "../survey/errorDatabaseError.html";
+                        window.location.href = "../survey/errorDatabase";
                         return;
                     }
                     break;
                     
                 default:
-                    throw new Error(`HTTP ${response.status}`)
+                    throw new Error(`HTTP ${response.status}`);
             }    
         };
         
-        window.location.href = "../survey/completion.html"
+        window.location.href = "../survey/completion"
 
     } catch (err) {
-        console.log("Error:", err);
+        window.location.href = "../survey/fetchError";
     
     } finally {
         subButton.disabled = false;

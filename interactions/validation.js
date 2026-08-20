@@ -70,24 +70,28 @@ function checkNumberValidity(id, errorDiv) {
     const input = document.getElementById(id);
     const error = document.getElementById(errorDiv);
 
-    const inputString = String(input.value);
-    const inputNumber = Number(input.value);
-    const min = Number(input.min);
-    const max = Number(input.max);
+    input.addEventListener("input", () => {
+        const raw = input.value;
+        const min = Number(input.min);
+        const max = Number(input.max);
 
-    if (!checkFormat(inputString)) {
-        error.classList.replace("pass", "error");
-        error.textContent = "Value must be either an integer or have exactly 2 digits after the decimal";
-        return;
-    } else if (!checkRange(inputNumber, min, max)) {
-        error.classList.replace("pass", "error");
-        error.textContent = `Value must be between ${min} and ${max}`;
-        return;
-    } else {
-        error.classList.replace("error", "pass");
-        error.textContent = "";
-        return;
-    };
+        if (!checkFormat(raw)) {
+            error.classList.replace("pass", "error");
+            error.textContent = "Value must not be negative, contain non-numeric characters, or have more than two digits after the decimal";
+            return;
+        }
+        else {
+            const numberInput = Number(raw);
+            if (!checkRange(numberInput, min, max)) {
+                error.classList.replace("pass", "error");
+                error.textContent = `Value must be between ${min} and ${max}`;
+                return;
+            };
+            error.classList.replace("error", "pass");
+            error.textContent = "";
+            return;
+        };
+    });
 };
 
 // for testing purposes only

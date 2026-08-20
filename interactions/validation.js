@@ -56,27 +56,39 @@ email.addEventListener("input", () => {
     };
 });
 
-// raising error for numerical fields out of range
-function raiseRangeError(id, flag) {
+
+// validating number format and range
+function checkFormat(value) {
+    return /^(?:\d+|\d+\.\d{2})$/.test(value);
+};
+
+function checkRange(value, min, max) {
+    return ((value >= min) && (value <= max));
+};
+
+function checkNumberValidity(id, errorDiv) {
     const input = document.getElementById(id);
-    const error = document.getElementById(flag);
+    const error = document.getElementById(errorDiv);
 
-    input.addEventListener("input", () => {
-        const value = Number(input.value);
-        const min = Number(input.min);
-        const max = Number(input.max);
+    const inputString = String(input.value);
+    const inputNumber = Number(input.value);
+    const min = Number(input.min);
+    const max = Number(input.max);
 
-        if ((input.value === "") || (value > min & value < max)) {
-            error.classList.replace("error", "pass");
-            error.textContent = "";
-            return;
-        } else if (value < min || value > max) {
-            error.textContent = `Value must be between ${min} and ${max}`;
-            error.classList.replace("pass", "error");
-            return;
-        }
-
-})};
+    if (!checkFormat(inputString)) {
+        error.classList.replace("pass", "error");
+        error.textContent = "Value must be either an integer or have exactly 2 digits after the decimal";
+        return;
+    } else if (!checkRange(inputNumber, min, max)) {
+        error.classList.replace("pass", "error");
+        error.textContent = `Value must be between ${min} and ${max}`;
+        return;
+    } else {
+        error.classList.replace("error", "pass");
+        error.textContent = "";
+        return;
+    };
+};
 
 // for testing purposes only
 
@@ -95,7 +107,7 @@ function raiseRangeError(id, flag) {
 //         console.error("Error connecting to backend:", error);
 //     });
 
-raiseRangeError("income", "incomeError");
-raiseRangeError("rent", "rentError");
-raiseRangeError("savings", "savingsError");
-raiseRangeError("emergency", "emergencyError");
+checkNumberValidity("income", "incomeError");
+checkNumberValidity("rent", "rentError");
+checkNumberValidity("savings", "savingsError");
+checkNumberValidity("emergency", "emergencyError");
